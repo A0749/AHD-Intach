@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Move critical stylesheets to load first -->
+    <link rel="stylesheet" href="src/css/bootstrap.min.css">
+    <link rel="stylesheet" href="src/css/styles.css">
+    
+    <!-- Preconnects and fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <!-- Other styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery/css/lightgallery.css">
+    <link rel="stylesheet" href="./src/css/lg-zoom.css">
+    <link rel="stylesheet" href="./src/css/lg-thumbnail.css">
+    <link rel="stylesheet" href="./src/css/justifiedGallery.css">
+    
+    
+    <link rel="icon" type="image/x-icon" href="./src/logo.png">
+
+    <title>Gallery - Intach</title>
+</head>
+
+
+<body id="gallery-page-body">
+    <div class="main">
+        <div class="gallery-page">
+            <nav class="navbar">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                  <img src="./src/img/logointach.png" alt="">
+                  <span class="brand-text">
+                      <span  class="brand-top">INTACH</span> <!-- Top text -->
+                      <span class="brand-bottom">
+                          <span>A</span>
+                          <span>R</span>
+                          <span>C</span>
+                          <span>H</span>
+                          <span>I</span>
+                          <span>T</span>
+                          <span>E</span>
+                          <span>C</span>
+                          <span>T</span>
+                          <span>U</span>
+                          <span>R</span>
+                          <span>A</span>
+                          <span>L</span>
+                         
+                          <span>&nbsp;</span> <!-- For space -->
+                          <span>H</span>
+                          <span>E</span>
+                          <span>R</span>
+                          <span>I</span>
+                          <span>T</span>
+                          <span>A</span>
+                          <span>G</span>
+                          <span>E</span>
+                      </span> <!-- Bottom text -->
+                  </span>
+              </a>
+              
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                  <span id="page-name" class="page-name"></span> <!-- Container for page name -->
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                 
+                  <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                      <li class="nav-item">
+                        <a class="nav-link "  href="about.html">About AHD</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                      </li>
+                    </ul>
+                    <div class="offcanvas-footer">
+                      <div class="bottom-content">
+                        <div class="bottom-inside">
+                          <div class="left">
+                            <ul>
+                              <li>© Copyright 2024, all rights reserved with <a href="#">INTACH</a></li>
+
+                            </ul>
+                          </div>
+                          <div class="right">
+                            <ul>
+                              <li><h2 style="color: white; padding: 0; margin: 0; font-size: 1rem;">Connect with us</h2></li>
+                              <li><a href="https://www.facebook.com/intach.heritage/"><i class="fa-brands fa-facebook"></i></a></li>
+                              <li><a href="https://www.instagram.com/intach_heritage/"><i class="fa-brands fa-instagram"></i></a></li>
+                              <li><a href="https://www.youtube.com/@intachconservationinstitut2250"><i class="fa-brands fa-youtube"></i></a></li>
+                              <li><a href="https://x.com/INTACHIndia"><i class="fa-brands fa-x-twitter"></i></a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <div class="gallery-main-content">
+              <div class="left-gallery">
+                <h2>Works</h2>
+                  <ul>
+                    <h4>Filter</h4>
+                    <div class="scope-list">
+                      <h5>Scope</h5>
+                      <li><a href="#">Aerial</a></li>
+                      <li><a href="#">Road</a></li>
+                      <li><a href="#">WormEye </a></li>
+                    </div>
+                   
+                    <div class="type-list">
+                      <h5>Type</h5>
+                      <li><a href="#">Images</a></li>
+                      <li><a href="#">360</a></li>
+                      <li><a href="#">Videos</a></li>
+                    </div>
+                  </ul>
+
+                <a style="color: #fff; font-size: 0.8rem; position: absolute; top: 75vh;" href="">© Copyright 2024</a>
+              </div>
+              <div class="right-gallery container">
+                <div class="row justify-content-center"> 
+                          <div class="col col-md-12">
+                            <div class="gallery-container" id="animated-thumbnails-gallery">
+                              <a data-lg-size="1600-1067" class="gallery-item" data-src="./src/img/hr/1.webp" data-sub-html="<h4> <a href='' >Front Facade View </a></h4>">
+                                <img alt="layers of blue." class="img-responsive" src="./src/img/hr/1.webp" />
+                              </a>
+                              <a data-lg-size="1600-2400" data-pinterest-text="Pin it2" data-tweet-text="lightGallery slide  2" class="gallery-item" data-src="./src/img/hr/1v.webp" data-sub-html="<h4>Aerial View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/1v.webp" />
+                              </a>
+                              <a data-lg-size="1600-2400" data-pinterest-text="Pin it3" data-tweet-text="lightGallery slide  3" class="gallery-item" data-src="./src/img/hr/2.webp" data-sub-html="<h4>Eye View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/2.webp" />
+                              </a>
+                              <a data-lg-size="1600-2398" data-pinterest-text="Pin it4" data-tweet-text="lightGallery slide  4" class="gallery-item" data-src="./src/img/hr/2v.webp" data-sub-html="<h4>Logo View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/2v.webp" />
+                              </a>
+                              <a data-lg-size="1600-1067" data-pinterest-text="Pin it5" data-tweet-text="lightGallery slide  5" class="gallery-item" data-src="./src/img/hr/3.webp" data-sub-html="<h4>Road View </h4>">
+                                <img class="img-responsive" src="./src/img/hr/3.webp" />
+                              </a>
+                              <a data-lg-size="1600-1067" data-pinterest-text="Pin it6" data-tweet-text="lightGallery slide  6" class="gallery-item" data-src="./src/img/hr/3v.webp" data-sub-html="<h4>Pargola View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/3v.webp" />
+                              </a>
+                              <a data-lg-size="1600-1126" data-pinterest-text="Pin it7" data-tweet-text="lightGallery slide  8" class="gallery-item" data-src="./src/img/hr/4.webp" data-sub-html="<h4>Road View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/4.webp" />
+                              </a>
+                              <a data-lg-size="1600-1063" data-pinterest-text="Pin it7" data-tweet-text="lightGallery slide  9" class="gallery-item" data-src="./src/img/hr/4v.webp" data-sub-html="<h4>Bar Angle</h4>">
+                                <img class="img-responsive" src="./src/img/hr/4v.webp" />
+                              </a>
+                              <a data-lg-size="1600-2400" data-pinterest-text="Pin it8" data-tweet-text="lightGallery slide  10" class="gallery-item" data-src="./src/img/hr/5.webp" data-sub-html="<h4>Eye View</h4>
+                                     ">
+                                <img class="img-responsive" src="./src/img/hr/5.webp" />
+                              </a>
+                              <a data-lg-size="1600-1144" data-pinterest-text="Pin it9" data-tweet-text="lightGallery slide  11" class="gallery-item" data-src="./src/img/hr/5v.webp" data-sub-html="<h4>Aerial View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/5v.webp" />
+                              </a>
+                              <a data-lg-size="1600-1067" data-pinterest-text="Pin it10" data-tweet-text="lightGallery slide  12" class="gallery-item" data-src="./src/img/hr/6.webp" data-sub-html="<h4>Road View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/6.webp" />
+                              </a>
+                              <a data-lg-size="1600-1067" data-pinterest-text="Pin it11" data-tweet-text="lightGallery slide  13" class="gallery-item" data-src="./src/img/hr/6v.webp" data-sub-html="<h4>Aerial View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/6v.webp" />
+                              </a>
+                              <a data-lg-size="1600-2400" data-pinterest-text="Pin it12" data-tweet-text="lightGallery slide  14" class="gallery-item" data-src="./src/img/hr/7.webp" data-sub-html="<h4>Eye View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/7.webp" />
+                              </a>
+                              <a data-lg-size="1600-1067" data-pinterest-text="Pin it13" data-tweet-text="lightGallery slide  15" class="gallery-item" data-src="./src/img/hr/7v.webp" data-sub-html="<h4>Club House Cam</h4>">
+                                <img class="img-responsive" src="./src/img/hr/7v.webp" />
+                              </a>
+                              <a data-lg-size="1600-2400" data-pinterest-text="Pin it14" data-tweet-text="lightGallery slide  16" class="gallery-item" data-src="./src/img/hr/8.webp" data-sub-html="<h4>Semi Aerial</h4>">
+                                <img class="img-responsive" src="./src/img/hr/8.webp" />
+                              </a>
+                              <a data-lg-size="1600-2400" data-pinterest-text="Pin it15" data-tweet-text="lightGallery slide  17" class="gallery-item" data-src="./src/img/hr/8v.webp" data-sub-html="<h4>Club View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/8v.webp" />
+                              </a>
+                              <a data-lg-size="1600-1065" data-pinterest-text="Pin it16" data-tweet-text="lightGallery slide  18" class="gallery-item" data-src="./src/img/hr/9.webp" data-sub-html="<h4>Semi Aerial View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/9.webp" />
+                              </a>
+                              <a data-lg-size="1600-2134" data-pinterest-text="Pin it17" data-tweet-text="lightGallery slide  19" class="gallery-item" data-src="./src/img/hr/9v.webp" data-sub-html="<h4>Drop Off View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/9v.webp" />
+                              </a>
+                              <a data-lg-size="1600-1060" data-pinterest-text="Pin it18" data-tweet-text="lightGallery slide  20" class="gallery-item" data-src="./src/img/hr/10.webp" data-sub-html="<h4>Worm Eye</h4>">
+                                <img class="img-responsive" src="./src/img/hr/10.webp" />
+                              </a>
+                              <a data-lg-size="1600-1037" data-pinterest-text="Pin it19" data-tweet-text="lightGallery slide  21" class="gallery-item" data-src="./src/img/hr/10v.webp" data-sub-html="<h4>Front View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/10v.webp" />
+                              </a>
+                            
+                              <a data-lg-size="1600-1067" data-pinterest-text="Pin it21" data-tweet-text="lightGallery slide  23" class="gallery-item" data-src="./src/img/hr/11v.webp" data-sub-html="<h4>Entrance View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/11v.webp" />
+                              </a>
+                              <a data-lg-size="1536-2304" data-pinterest-text="Pin it22" data-tweet-text="lightGallery slide  24" class="gallery-item" data-src="./src/img/hr/12v.webp" data-sub-html="<h4>Entrance View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/12v.webp" />
+                              </a>
+                              <a data-lg-size="1536-2304" data-pinterest-text="Pin it22" data-tweet-text="lightGallery slide  24" class="gallery-item" data-src="./src/img/hr/13v.webp" data-sub-html="<h4>Semi Aerial</h4>">
+                                <img class="img-responsive" src="./src/img/hr/13v.webp" />
+                              </a>
+                              <a data-lg-size="1536-2304" data-pinterest-text="Pin it22" data-tweet-text="lightGallery slide  24" class="gallery-item" data-src="./src/img/hr/14v.webp" data-sub-html="<h4>Pool View</h4>">
+                                <img class="img-responsive" src="./src/img/hr/14v.webp" />
+                              </a>
+                            </div>
+                          </div>
+                </div>     
+              </div>
+            </div>
+            
+      </div>
+    </div>
+<!-- Bootstrap JS - prioritize loading with preload, without defer -->
+<link rel="preload" href="src/js/bootstrap.min.js" as="script">
+<script src="src/js/bootstrap.min.js"></script>
+
+<script src="https://kit.fontawesome.com/677b4ef31b.js" crossorigin="anonymous"></script>
+
+
+<!-- jQuery and other scripts - load after HTML parsing with defer -->
+<script src="./src/js/jquery.js" defer></script>
+<script src="./src/js/gsap.min.js" defer></script>
+<script src="./src/js/ScrollTrigger.min.js" defer></script>
+<script src="./src/js/lightgallery.umd.js" defer></script>
+<script src="./src/js/lg-zoom.umd.js" defer></script>
+<script src="./src/js/lg-thumbnail.umd.js" defer></script>
+<script src="./src/js/jquery.justifiedGallery.js" defer></script>
+
+<!-- Your custom scripts -->
+<script src="./src/js/script-gallery.js" defer></script>
+<script src="./src/js/script.js" defer></script>
+
+</body>
+</html>

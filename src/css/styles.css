@@ -1,0 +1,1124 @@
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Righteous&display=swap');
+
+
+:root {
+  
+  --yellow: #f5aa27;
+  --heritage: #6a0101;
+  --listing: #36454F;
+  --conservation: #556b2f;
+  --grey: #36454F;
+  --text-light: #f5f5f0;
+}
+
+body#listing-page,
+body#gallery-page-body, 
+body#publication-page {
+  overflow: auto; /* Allow scrolling only on gallery page */
+  position: relative;
+}
+#conservation-page{
+  background-color: var(--conservation);
+}
+#publication-page{
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  overflow: auto;
+  background-color: var(--grey)	 ;
+}
+
+#listing-page{
+  background-color:var(--listing) ;
+}
+#gallery-page-body{
+  background-color:var(--grey) ;
+}
+body#heritageAtRisk-page{
+  background-color: var(--heritage);
+  overflow-y: auto !important;
+}
+body {
+  margin: 0;
+  height: 10%;
+  padding: 0;
+  font-optical-sizing: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  overflow-y: hidden; /* Prevent horizontal scrolling */
+}
+
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-color:  #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+        scrollbar-width: thin;
+
+    width: 5px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--yellow);
+    border-radius: 5px;
+    border: 2px solid var(--yellow);
+  }
+
+  
+.navbar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: auto;
+  padding: 2rem 0;
+  position: fixed;
+  z-index: 1100;
+  }
+
+  
+  .navbar .container-fluid {
+  width: 95%;
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center; /* Vertically aligns logo and text */
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none; /* Optional to remove underline if it's a link */
+    font-family: Ubuntu, sans-serif;
+  }
+
+.navbar-brand img {
+    width: 2rem;
+    margin-right: 1rem; /* Adds some space between the logo and text */
+}
+
+.navbar-brand .brand-text {
+    display: flex;
+    flex-direction: column; /* Stacks the top and bottom text */
+    line-height: 1;
+}
+
+.brand-top {
+    display: block;
+    padding: 0;
+    margin: 0;
+    color: var(--yellow);
+}
+
+.brand-bottom {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-brand:hover {
+    color: #f1f1f1;
+}
+.page-name {
+  font-family: "Kanit", sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  margin-right: 1rem; /* Adds some spacing between the page name and the toggle button */
+}
+.instant-nav{
+  font-family: "Kanit", sans-serif;
+  margin-left: auto;
+  padding-right: 1rem;
+}
+.instant-nav span a{
+  color: #fff;
+  text-decoration: none;
+  padding: 0 1rem;
+  font-size: 1rem;
+}
+
+  
+/* Default navbar-toggler icon (hamburger menu) */
+.navbar-toggler .navbar-toggler-icon {
+  width: 30px;
+  height: 2px;
+  background-color: #ffffff; /* Default color */
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease; /* Smooth transition for icon change */
+}
+
+/* Create the middle bar */
+.navbar-toggler .navbar-toggler-icon::before,
+.navbar-toggler .navbar-toggler-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff; /* Color for the other bars */
+  transition: all 0.3s ease;
+}
+
+/* Top and bottom bars of hamburger */
+.navbar-toggler .navbar-toggler-icon::before {
+  top: -8px; /* Position the top bar */
+}
+
+.navbar-toggler .navbar-toggler-icon::after {
+  bottom: -8px; /* Position the bottom bar */
+}
+
+/* Transform hamburger menu into X (close icon) */
+.navbar-toggler.active .navbar-toggler-icon {
+  background-color: transparent; /* Hide the middle bar */
+}
+
+.navbar-toggler.active .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0; /* Align with center */
+}
+
+.navbar-toggler.active .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  bottom: 0; /* Align with center */
+}
+
+  #offcanvasDarkNavbar {
+  transition: none !important;
+  width: 100vw; /* Full width of the viewport */
+  
+  }
+  /* Make sure navbar-brand and navbar-toggler remain visible */
+.navbar-brand,
+.navbar-toggler {
+  visibility: visible !important;
+  opacity: 1 !important; /* Make sure they are not faded */
+  z-index: 1051; /* Ensure they appear on top of offcanvas */
+}
+.navbar-toggler:focus,
+.navbar-toggler:active{
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+  
+  .offcanvas {
+  background-color: var(--grey) !important;
+ 
+  }
+  /* Prevent body from scrolling when offcanvas is active */
+.offcanvas-active {
+  overflow: hidden;
+}
+
+/* Make sure the offcanvas covers the full screen */
+.offcanvas.offcanvas-end {
+  z-index: 1055; /* Higher than the navbar elements */
+  width: 100vw !important; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  background-color: var(--grey); /* Dark background to cover content */
+  position: fixed;
+}
+
+/* Adjusting z-index to make sure navbar-brand and navbar-toggler are above offcanvas */
+.navbar-brand,
+.navbar-toggler {
+  z-index: 1060; /* Ensure they are above the offcanvas menu */
+}
+.navbar-toggler{
+  border: none;
+}
+
+.navbar-toggler-icon{
+  background-image: none !important;
+}
+
+  
+  .offcanvas-header button {
+  font-size: 1.5rem;
+  }
+  
+  .offcanvas.offcanvas-end {
+  width: 100vw; /* Full width of the viewport */
+  }
+  
+  .offcanvas-body {
+    display: flex;
+    align-items: center; /* Vertically centers the content */
+    justify-content: end;
+    text-align: right;
+    width: 100%;
+
+  }
+  
+
+  
+  .offcanvas-body ul li a {
+    color: #fff;
+  font-size: 4rem;
+  font-family: "Kanit", sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-style: normal;
+    text-transform: capitalize;
+    transition: color 0.8s ease, all 0.3s ease; /* Smooth transition */
+    padding: 0 5vw;
+    line-height: 1.2;
+  }
+  
+
+  .offcanvas-body ul li a:active,
+  .offcanvas-body ul li a:hover,
+  .offcanvas-body ul li a:focus {
+    color: var(--yellow);
+  }
+
+  
+
+.section {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  transition: transform 0.5s ease; /* Smooth transition */
+}
+
+
+.home-page .hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.index-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 60vw;
+  gap: 20px;
+}
+
+.box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.index-container .box {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  background: rgba(255, 255, 255, 0);
+  border: none; /* Remove initial border */
+  overflow: hidden;
+  margin-top: 10vh;
+}
+
+/* Before and After for hover border animation */
+.box::before, .box::after {
+  position: absolute;
+  content: "";
+  width: 10%; height: 25%;
+  background: transparent;
+  transition: 0.35s;
+}
+
+.box::before {
+  top: 0; left: 0;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+}
+
+.box::after {
+  bottom: 0; right: 0;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+.box:hover::before,
+.box:hover::after {
+  width: 99%;
+  height: 98%;
+}
+
+/* Style for explore text */
+.explore-text {
+  position: absolute;
+  bottom: 10px; /* Ensure this is close to the bottom */
+  left: 0;
+  width: 100%; /* Ensure full width */
+  text-align: center; /* Center text horizontally */
+  font-size: 1rem;
+  padding: 0.3rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 2; /* Ensure this appears above other elements */
+}
+
+/* Style for h2-text */
+.h2-text {
+  font-size: 1.2rem;
+  color: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+/* When the box is hovered */
+.box:hover .explore-text {
+  opacity: 1;
+}
+
+.box:hover + .h2-text {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Update for after pseudo-element to show data-title */
+.box:hover::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 10px; /* Same as explore-text to appear at the bottom */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.3rem;
+  color: white;
+  opacity: 1;
+  z-index: 1; /* This will appear below explore-text */
+  transition: opacity 0.2s ease;
+}
+
+.banner {
+position: relative;
+height: 100vh;
+width: 1000%;
+overflow: hidden;
+}
+
+
+.background-image video {
+position: absolute;
+width: auto;
+height: auto;
+min-width: 100vh;
+min-height: 100vh;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: -1;
+background-size: cover;
+}
+
+
+.gradient-overlay {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0, 0, 0, 0.6); /* Initially transparent */
+pointer-events: none;
+z-index: 1; /* To ensure it is above the video */
+}
+
+.hero {
+height: 100vh;
+width: 100%;
+overflow: hidden;
+}
+
+.hero .hero-content {
+position: absolute;
+z-index: 1;
+color: #fff;
+}
+.hero .hero-content h1{
+font-size: 3rem;
+white-space: nowrap;
+}
+.hero .hero-content p{
+font-size: 1rem;
+}
+
+.hero .hero-content a{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: var(--yellow);
+}
+#section2 .hero-content h1{
+  font-size: 2rem;
+}
+#section2 .hero-content .hero-address p{
+  font-size: 1rem;
+}
+#section1 .hero .hero-content{
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+} 
+#section2 .gradient-overlay,
+#section3 .gradient-overlay{
+  background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.4));
+
+}
+.about-page .hero .hero-content{
+  color: #c8c6c6;
+}
+.about-page .hero .hero-content h1{
+  color: #f0e7e7;
+  font-size: 2.5rem;
+  padding-bottom: 1rem;
+}
+.about-page .hero .hero-content p{
+  font-size: 1rem !important;
+  line-height: 1.3rem;
+
+}
+
+#section2 .hero .hero-content,
+#section3 .hero .hero-content{
+  width: 65%;
+  top: 30vh;
+  left: 7%;
+  bottom: 0;
+}
+
+
+
+#section2 .hero .hero-content .service-nav{
+  display: flex;
+  padding-top: 5vh;
+  position: relative;
+}
+
+.left-ul {
+  margin-right: 20px; /* Space between the menu and descriptions */
+}
+
+
+ .right-para p {
+  font-size: 1rem !important;
+  color: #999999;
+  padding: 2.5%;
+  display: none; /* Hide all paragraphs by default */
+}
+
+.right-para p.active {
+  display: block; /* Show the active paragraph */
+  
+}
+
+#section3 .hero .hero-content p{
+  color: #999999;
+}
+
+#section3 h1{
+  font-size: 2rem;
+}
+
+
+.video-content {
+height: 60vh;
+width: 100%;
+}
+
+.video-content video {
+height: 100%;
+width: 100%;
+}
+
+/* Bottom Nav */
+.bottom-content{
+  display: flex;
+  bottom: 3vh;
+  left: 0;
+  right: 0;
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  z-index: 5;
+}
+.bottom-content ul{
+  padding-left: 0;
+}
+
+.bottom-content ul li{
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  
+}
+.offcanvas .bottom-content ul li a {
+  padding: 0;
+  font-weight: 400;
+  font-family: Ubuntu, sans-serif;
+  letter-spacing: 1px;
+
+}
+.offcanvas .bottom-content ul li,
+.bottom-content ul li a{
+  margin: 0;
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: #fff;
+}
+.bottom-content .left ul li a{
+  padding: 5px 28px 5px 0;
+}
+.bottom-content .right ul li a{
+  padding: 5px 0px 5px 24px;
+ 
+}
+.bottom-content .bottom-inside{
+  width: 86%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+/* Contact Page */
+
+.hero-contact .flexbox{
+  display: flex;
+  padding-top: 2rem;
+  gap: 3rem;
+}
+.hero-contact .flexbox h6,
+.hero-contact .flexbox p{
+  color: #cdcaca;
+}
+.hero-contact .flexbox p{
+  margin-bottom: 0.6rem;
+  font-size: 0.8rem;
+}
+.hero-contact .flexbox h6{
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+
+/* Gallery Page */
+
+
+
+#gallery-page-body .row {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+#gallery-page-body nav{
+  z-index: 100;
+}
+
+.gallery-main-content {
+  display: flex;
+  width: 95%;
+  margin: auto;
+}
+.gallery-page .container-fluid{
+  padding: 0;
+}
+.left-gallery {
+  width: 15%;
+  position: fixed;
+  top: 20vh; /* Sticky position at the top of the viewport */
+  height: 100vh; /* Ensures it occupies full height */
+  background-color: var(--grey); /* Optional: Add background for clarity */
+  left: 3%;
+  
+}
+.left-gallery h2{
+  font-size: 1.5rem;
+}
+.left-gallery h4{
+  color: #fff;
+  font-size: 1.2rem;
+  padding-top: 2rem;
+  padding-bottom: 0.8rem;
+}
+.left-gallery h5{
+  color: #fff;
+  font-size: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ffffff6d;
+  color: #ffffff6d;
+  padding-bottom: 0.5rem;
+
+}
+.left-gallery h2, .left-gallery p {
+  color: #fff;
+}
+.left-gallery .scope-list{
+  padding-bottom: 1rem;
+}
+
+.right-gallery {
+  margin-top: 15vh;
+  margin-left: 18%;
+  height: 100vh;
+}
+
+#animated-thumbnails {
+  overflow: scroll;
+  cursor: pointer;
+}
+
+#animated-thumbnails img {
+  cursor: pointer;
+}
+
+.gallery-item {
+  width: 350px;
+  padding: 5px;
+}
+
+.left-gallery ul{
+  padding: 0;
+}
+
+.left-gallery li a{
+  text-decoration: none;
+  color: #dad8c48b;
+}
+.left-gallery li{
+  list-style-type: none;
+  padding-left: 0.8rem;
+  padding-bottom: 0.3rem;
+}
+
+/* Home page slopped */
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-toggler {
+      display: block;
+  }
+}
+      .blocks {
+          display: flex;
+          height: 100vh;
+          width: 100vw;
+          overflow: hidden;
+
+      }
+
+      .block {
+          flex: 1;
+          position: relative;
+          margin-right: -5vw;
+          clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+          transition: flex 0.3s ease, transform 0.4s ease;
+
+      }
+
+      .block:first-child {
+          clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+      }
+
+      .block:last-child {
+          margin-right: -2vw;
+          clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+      }
+
+      .block:hover {
+          flex: 1.05;
+          transform: scale(1.02);
+          z-index: 10;
+      }
+
+      .block img, .block video {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: opacity 0.3s ease;
+
+      }
+
+      .block img {
+          opacity: 1;
+      }
+
+      .block video {
+          opacity: 0;
+          transition: opacity 0.3s ease;
+      }
+
+      .block:hover img {
+          opacity: 0;
+      }
+
+      .block:hover video {
+          opacity: 1;
+      }
+
+      .front-page .text-content {
+          position: absolute;
+          
+         width: 100%;
+         height: 100%;
+          color: #fff;
+          text-align: left;
+          z-index: 2;
+          padding-top: 80vh;
+          padding-left: 10%;
+          background-color: rgba(1, 1, 1, 0.4); /* Darken the background */
+
+      }
+
+      .front-page .text-content h2 {
+          font-size: 2rem;
+          margin: 0;
+      }
+
+      .front-page .text-content h4 {
+          font-size: 1rem;
+          margin-top: 0.5rem;
+      }
+
+      .front-page .explore-text {
+          
+          display: none;
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+          color: #fff;
+          font-weight: bold;
+          transition: opacity 0.3s ease;
+          text-align: left;
+          padding-left: 10%;
+          padding-bottom: 20%;
+      }
+
+      .block:hover .explore-text {
+          color: var(--yellow);
+          display: block;
+          opacity: 1;
+      }
+
+      .block .text-content h4 {
+          opacity: 1;
+      }
+
+      /* .block:hover .text-content h4 {
+          opacity: 1;
+      } */
+
+      .block a {
+          text-decoration: none;
+      }
+
+/* Publication Page */
+
+
+#publication-page .row{
+  overflow: auto !important;
+  
+}
+
+.scrollable-posts-container {
+  position: relative;
+  overflow: hidden; /* Hide scrollbars */
+  height: 100vh;
+  width: 100vw;
+  cursor: pointer;
+}
+
+
+.scrollable-thumbnails::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Webkit browsers (Chrome, Safari, etc.) */
+}
+
+
+.scrollable-thumbnails {
+  padding-top: 10vh;
+  padding-left: 7vw;
+  display: flex;
+  gap: 0.3rem;
+  width: max-content; /* Allow horizontal scrolling */
+  position: relative; /* Keep in place */
+  overflow-x: auto; /* Enable horizontal scroll */
+  width: 100%; /* Make sure it's set to the full width */
+  overflow-x: scroll; /* Allow horizontal scrolling */
+  -ms-overflow-style: none; /* Hide scrollbar in Internet Explorer and Edge */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+
+.scrollable-thumbnail-item {
+  width: 450px;
+  min-width: 350px;
+  height: auto;
+  color: #ffffff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 1.5rem;
+  border-radius: 0.1rem;
+  text-align: center;
+  z-index: 1;
+  cursor: pointer;
+}
+.scrollable-post{
+  width: 450px;
+  text-align: left;
+  height: 450px;
+
+}
+.scrollable-post img{
+  width: 100%;
+ 
+}
+.divider {
+  width: 2px; /* Width of the divider line */
+  background-color: #fff; /* Divider color */
+  margin: 0 5px; /* Space around divider */
+  flex-shrink: 0;
+  z-index: 1;
+}
+.heading{
+  font-size: 0.8rem;
+  justify-content: space-between;
+  text-transform: uppercase;
+  display: flex;
+  padding: 5px 0;
+
+}
+.tagline{
+  padding-bottom: 1rem;
+
+}
+.scrollable-text-box a{
+  font-size: 1rem;
+  color: #fff;
+  text-decoration: none;
+
+}
+
+.scrollable-post p{
+  font-size: 0.8rem;
+}
+.scrollable-thumbnail-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollable-post {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.img-box {
+  position: relative;
+  width: 100%;
+  height: 350px; /* Fixed height of the container */
+  background-color: white; /* Fills remaining space with white background */
+  display: flex;
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center; /* Centers the image vertically */
+  overflow: hidden; /* Hides any overflow */
+}
+
+.img-box img {
+  max-width: 100%; /* Ensures the image scales down if too wide */
+  max-height: 100%; /* Ensures the image scales down if too tall */
+  object-fit: contain; /* Ensures the whole image is visible */
+  transition: transform 0.3s ease; /* Smooth transition */
+
+}
+
+
+
+/* Parallax effect on hover */
+.scrollable-thumbnail-item:hover .img-box img {
+  transform: translateY(-30px); /* Moves the image up slightly on hover */
+}
+
+.scrollable-text-box {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--grey);
+   padding: 8px;
+}
+
+
+
+/* Set hover behavior only for the paragraph */
+.hover-paragraph {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.7s ease, max-height 0.7s ease;
+}
+
+.scrollable-thumbnail-item:hover .hover-paragraph {
+  opacity: 1;
+  max-height: 150px; /* Adjust based on desired height */
+}
+
+/* Heritage at Risk */
+
+.heritage-home{
+  width: 100%;
+  height: 82vh;
+  margin-top: 18vh;
+  overflow: hidden;
+  display: flex;
+  color: #fff;
+  border-top: 1px solid #fff;
+}
+.heritage-home span{
+  font-size: 2rem;
+  font-weight: 800;
+}
+.heritage-home .left{
+  width: 43%;
+  border-right: 1px solid #fff;
+}
+.heritage-home .left-top{
+  border-bottom: 1px solid #fff;
+  text-align: right;
+  padding: 5rem;
+}
+.heritage-home .left-bottom{
+  text-align: left;
+  padding: 3rem;
+}
+.heritage-home .left-bottom span{
+  font-size: 3rem;
+}
+.heritage-home .right-top{
+  border-bottom: 1px solid #fff;
+  padding: 3rem;
+}
+.heritage-home .right-top span{
+  font-size: 2.5rem;
+}
+.heritage-home .right{
+  width: 57%;
+}
+.heritage-home .left .left-top,
+.heritage-home .right .righ-bottom{
+  height: 35vh;
+}
+.heritage-home .left .left-bottom,
+.heritage-home .right .right-top{
+  height: 45vh;
+}
+
+.heritage-home .right-bottom{
+  height: 35vh;
+  display: flex;
+}
+
+.heritage-home .bottom-right{
+  height: 100%;
+  padding-left: 7%;
+  padding-top: 4%;
+  border-left: 1px solid #fff;
+}
+.heritage-home .bottom-left{
+  padding-left: 7%;
+  padding-top: 4%;
+
+  width: 60%;
+  border-right: 1px solid #fff;
+  
+}
+
+
+/* Listing Page */
+#listing-page .navbar{
+  
+  padding: 1.2rem 0;
+}
+
+.listing-container .list-single {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin: 0vh 7vw;
+  padding: 5vh 0;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  position: relative; /* Ensures proper positioning context for child elements */
+  cursor: pointer;
+}
+.listing-container .list-single:first-child {
+  margin-top: 18vh;
+}
+/* Remove border-bottom for the last child */
+.listing-container .list-single:last-child {
+  border-bottom: none;
+}
+
+.listing-container .img-box {
+  flex-shrink: 0;
+  width: 340px; /* Fixed width */
+  height: 350px; /* Fixed height */
+  overflow: hidden; /* Prevent the extra part of the image from showing */
+  position: relative; /* Sets the context for the image's absolute positioning */
+}
+
+.listing-container .img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the box without distortion */
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(1.05); /* Default state: slightly zoomed in */
+  transition: transform 0.2s ease; /* Smooth transition for the zoom effect */
+}
+
+.listing-container .list-single:hover .img-box img {
+  transform: scale(1); /* On hover: revert to normal size */
+}
+
+.listing-container .listing-text {
+  flex: 1;
+}
+
+.listing-container .list-single p {
+  font-size: 0.8rem;
+}
+
+/* Conservation Page */
+#swup{
+  padding-top: 20vh;
+}
+.tab-link {
+  text-decoration: none;
+  padding: 10px 20px;
+  color: black;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.tab-link.active {
+  color: white;
+  background-color: #4CAF50;
+  border-radius: 4px;
+}
+html.is-changing .swup-transition-main {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
