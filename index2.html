@@ -1,154 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabs with Equal Height Sections</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background-color: #333;
-            color: #fff;
-        }
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+      </style>
+    <title>Building Outline</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        font-family: "Noto Sans", sans-serif;
+      }
+      .container {
+        width: 100%;
+        height: 100%;
+      }
+      h1 {
+        color: #fff;
+        font-size: 36px;
+        font-weight: 400;
+      }
+      h3 {
+        color: #fff;
+        font-size: 28px;
+      }
+      p {
+        padding: 2rem 0;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 150%;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero {
+        width: 100vw;
+        height: 100vh;
+        background: url(./src/img/hr/3v.webp) no-repeat 50% 50%;
+        background-size: cover;
+        overflow: hidden;
+      }
+      .footer {
+        width: 100vw;
+        height: 100vh;
+        background: url(./src/img/hr/3v.webp) no-repeat 50% 50%;
+        background-size: cover;
+        overflow: hidden;
 
-        .tabs-container {
-            width: 12vw;
-            height: 100vh;
-            position: fixed;
-            left: 7vw; /* Positioned next to the transparent space */
-            display: flex;
-            flex-direction: column;
-        }
+      }
+      .services {
+        background: #000;
+        padding: 8em 2em;
+        display: flex;
+        flex-direction: column;
+      }
+      .services-header {
+        width: 100%;
+        display: flex;
+        gap: 4em;
+      }
+      .services-header .col:nth-child(1) {
+        flex: 2;
+      }
+      .services-header .col:nth-child(2) {
+        flex: 4;
+        padding: 1em;
+      }
+      .service {
+        display: flex;
+        gap: 2em;
+        height: auto;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
 
-        /* Transparent boxes and nav buttons all get equal height */
-        .additional-box, .tabs-nav button {
-            width: 100%;
-            height: 16.66%; /* 100% / 6 elements = 16.66% */
-            border: 1px solid #fff;
-            background-color: transparent;
-            flex-shrink: 0;
-        }
+      .service-info {
+        flex: 4;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1em;
+      }
+      .service-img {
+        flex: 2;
+        width: 100%;
+        height: 100%;
+        padding: 1em;
+        position: sticky;
+        top: 50px; 
 
-        .tabs-nav {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background-color: #444;
-            border-right: 2px solid #ccc;
-        }
 
-        .tabs-nav button {
-            text-align: left; /* Align text to the left */
-            padding-left: 2vw; /* Padding for text alignment */
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
+      }
+      .img {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+     
+      }
 
-        .tabs-nav button:hover,
-        .tabs-nav button.active {
-            background-color: #007bff;
-            color: #fff;
-        }
+      html.lenis,
+      html.lenis body {
+        height: auto;
+      }
 
-        .tab-content-wrapper {
-            margin-left: 19vw; /* Space for transparent box and navigation */
-            width: calc(100% - 19vw);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
 
-        .tab-section {
-            display: none;
-        }
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
 
-        .tab-section.active {
-            display: block;
-        }
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
 
-        .tab-content {
-            border-left: 2px solid #ccc;
-            padding-left: 2rem;
-            text-align: left;
-        }
-
-        .tab-content h2 {
-            font-size: 3rem;
-        }
+      .lenis.lenis-smooth iframe {
+        pointer-events: none;
+      }
     </style>
-</head>
-<body>
-    <!-- Tabs Container -->
-    <div class="tabs-container">
-        <!-- Top Transparent Box -->
-        <div class="additional-box"></div>
-
-        <!-- Navigation Buttons -->
-        <div class="tabs-nav">
-            <button class="btn" data-target="#tab-1">Tab 1</button>
-            <button class="btn" data-target="#tab-2">Tab 2</button>
-            <button class="btn" data-target="#tab-3">Tab 3</button>
-            <button class="btn" data-target="#tab-4">Tab 4</button>
+  </head>
+  <body>
+    <div class="container">
+      <section class="hero"></section>
+      <section class="services">
+        <div class="services-header">
+          <div class="col"></div>
+          <div class="col">
+            <h1>All Services</h1>
+          </div>
+        </div>
+        <div class="service">
+          <div class="service-info">
+            <h1>Ongoing – Listing of Built Heritage, Diu</h1>
+            <p class="p1">
+              The Diu Island is marked by its massive Portuguese structures, its
+              beaches and its cluster of old residential colonies. The island
+              was first captured by many Hindu and Muslims dynasties till 1535
+              A.D and then was finally seized by the Portuguese in 1935 A.D: a
+              turning point in Diu Architecture. From a glance Diu would appear
+              as a landmark of dominating fortress and the catholic churches. To
+              witness the real Diu one has to meditate through the intertwining
+              lanes of the walled city. The residences of theses lanes speak
+              aloud of themselves, the finest carving, the modest facades with
+              mesmerizing interiors and the hung glass lamps portrays the aura
+              of the people residing here since hundreds of years. It’s the only
+              place where one could find the perfect amalgamation of Portuguese
+              architecture in pure Indigenous style.
+            </p>
+            <p class="p2">
+              The Diu administration and INTACH has taken initiative to list
+              these built heritage structures of Diu. A team of conservation
+              architects and architects visited the town twice and did a
+              comprehensive on-field survey to discover, geo-locate and document
+              the structures. The listing is under finalization stage and will
+              be submitted to the Diu Administration in near future.
+            </p>
+          </div>
+          <div class="service-img">
+            <div class="img">
+              <img src="./src/img/Diu_Listing-1013x1024.jpg" alt="" />
+            </div>
+          </div>
         </div>
 
-        <!-- Bottom Transparent Box -->
-        <div class="additional-box"></div>
+        <div class="service">
+          <div class="service-info">
+            <h1>
+              Identification, Listing And Documentation Of Heritage Sites
+              Associated With Swami Vivekananda
+            </h1>
+            <p class="p3">
+              INTACH has been approached by the Ministry of Culture, Govt. of
+              India to list and document the buildings/sites associated with
+              Swami Vivekananda, especially the buildings which are not under
+              the ownership or care of the Ramakrishna Mission. A list of
+              buildings has been prepared across 31 towns including Delhi,
+              Alwar, Ajmer, Mount Abu, Hrishikesh, Nainital, Srinagar
+              (Uttarakhand), Varanasi, Ayodhya, Bhuj, Girnar, Palitana, Dwarka,
+              Mahabaleshwar, Panaji, Rameswaram, Pondicherry and others. A team
+              of architects from the AH division with support of INTACH chapters
+              and local resource persons have been engaged in the survey work. A
+              detailed inventory format has been prepared for site survey.
+              Assistance from the RK mission centers has also been sought for
+              identification and access to the buildings. While most of the
+              buildings are found to have been altered, some very significant
+              buildings have been demolished in the last decade, such as the
+              Seth Shyamaldas Haveli in Roshanara Garden, Delhi.
+            </p>
+          </div>
+          <div class="service-img">
+            <div class="img">
+              <img src="./src/img/Diu_Listing-1013x1024.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <div class="service">
+          <div class="service-info">
+            <h1>Cultural Resource Mapping In North And South Sikkim</h1>
+            <p class="p4">
+              A MoU has been signed between the Govt. of Sikkim (Cultural
+              Affairs & Heritage Development) and INTACH to survey and update
+              the old listing in North and South Sikkim. Architectural Heritage
+              Division has surveyed about 160 heritage sites including built
+              heritage, natural landscapes, settlements, villages etc spanning
+              from a height of 600 feet to 18000 feet. The survey included study
+              and documentation of settlement patterns and houses of all three
+              predominant communities: Lepcha, Bhutia and Nepalese. The Bhutia
+              heartland in the north Sikkim (Chungthang, Lachen, Lachung,
+              Yumthang and Thanggu) being the main epicenter of 2011 of
+              earthquake, suffered the maximum damage. While many mani Lakhangs,
+              Gompas and houses in this area featured in the old list were
+              damaged, some of them have been rebuilt and the others are in the
+              process of rebuilding. One of the most significant monasteries
+              Thanggu at 14000 feet above sea was destroyed in the earthquake
+              and has been rebuilt. The survey data is presently being compiled
+              in form a listing document.
+            </p>
+          </div>
+          <div class="service-img">
+            <div class="img">
+              <img src="./src/img/Diu_Listing-1013x1024.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <div class="service">
+          <div class="service-info">
+            <h1>
+              Cultural Heritage Mapping In Braj Corridor And Buddhist Circuit
+            </h1>
+            <p class="p5">
+              Architectural Heritage Division of INTACH has been entrusted by
+              the world bank to undertake cultural resources mapping in the Braj
+              corridor comprising 9 towns (Agra, Mathura, Vrindavan, Nandgaon,
+              Barsana, Govardhan, Gokul, Mahavan and Baldeo) and the Buddhist
+              circuit covering 3 towns (Sarnath, Kushinagar and Shravasti). The
+              mapping involved identification, comprehensive listing, and
+              mapping of the heritage assets both tangible and intangible using
+              Geographical Information System (GIS).
+            </p>
+            <h3>Buddhist Circuit</h3>
+            <p class="p6">
+              Known as the ‘Cradle of Buddhism’, the Buddhist Circuit is dotted
+              with monuments, relics, and Jataka tales and so has been a major
+              centre for rich architectural and cultural heritage for centuries.
+              The survey was undertaken in Sarnath – where Buddha delivered his
+              first sermon, Sravasti – where he retreated every monsoon for more
+              than 25 years and Kushinagar – where Buddha attained
+              Mahaparinirvana covering 40 sites in Sarnath, 39 sites in
+              Kushinagar and 59 sites in Sravasti comprising temples,
+              monasteries, Stupas, Viharas, meditation centres, archaeological
+              ruins and open spaces of immense historic significance.
+            </p>
+            <h3>Agra – Braj Corridor</h3>
+            <p class="p7">
+              The towns identified for survey in the Braj Corridor are highly
+              significant and due to their association with the legends of Lord
+              Krishna and his life. Braj has been the subject of poetry and
+              paintings in medieval and late medieval India. The living
+              traditions of Braj are encompassed in its unique dialect, folk
+              dances and songs, and folk arts and crafts. The survey covered 56
+              sites in Mathura, 61 sites in Vrindavan, 34 sites in Gokul, 24
+              sites in Mahavan, 11 sites in Baldeo, 37 sites in Barsana, 38
+              sites in Nandgaon and 42 sites in Govardhan of immense historic
+              significance and are located along various parikrama routes and
+              include architectural, natural and intangible heritage of various
+              typologies.
+            </p>
+          </div>
+          <div class="service-img">
+            <div class="img">
+              <img src="./src/img/Diu_Listing-1013x1024.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="footer"></section>
     </div>
 
-    <!-- Tab Sections -->
-    <div class="tab-content-wrapper">
-        <div id="tab-1" class="tab-section active">
-            <div class="tab-content">
-                <h2>Post Title 1</h2>
-                <p>Content of post 1 goes here...</p>
-            </div>
-        </div>
-        <div id="tab-2" class="tab-section">
-            <div class="tab-content">
-                <h2>Post Title 2</h2>
-                <p>Content of post 2 goes here...</p>
-            </div>
-        </div>
-        <div id="tab-3" class="tab-section">
-            <div class="tab-content">
-                <h2>Post Title 3</h2>
-                <p>Content of post 3 goes here...</p>
-            </div>
-        </div>
-        <div id="tab-4" class="tab-section">
-            <div class="tab-content">
-                <h2>Post Title 4</h2>
-                <p>Content of post 4 goes here...</p>
-            </div>
-        </div>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/intersection-observer@0.12.2/intersection-observer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.1/dist/lenis.min.js"></script>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Handle tab switching on click
-        const buttons = document.querySelectorAll('.tabs-nav button');
-        const sections = document.querySelectorAll('.tab-section');
+ document.addEventListener("DOMContentLoaded", function () {
+    const lenis = new Lenis();
 
-        buttons.forEach((button) => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons and sections
-                buttons.forEach((btn) => btn.classList.remove('active'));
-                sections.forEach((section) => section.classList.remove('active'));
+    lenis.on("scroll", ScrollTrigger.update);
 
-                // Add active class to the clicked button and the corresponding section
-                button.classList.add('active');
-                const target = document.querySelector(button.dataset.target);
-                target.classList.add('active');
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.ticker.lagSmoothing(0);
+
+    // Independent paragraph animations
+    const animateParagraphs = () => {
+        const paragraphs = gsap.utils.toArray("p, h1, h3, img");
+        paragraphs.forEach((paragraph) => {
+            gsap.set(paragraph, { opacity: 0, y: 50 }); // Initially hide paragraphs
+
+            ScrollTrigger.create({
+                trigger: paragraph,
+                start: "top 80%", // Adjust trigger position based on viewport
+                end: "top 60%",
+                toggleActions: "play none none reverse",
+                onEnter: () => {
+                    gsap.to(paragraph, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.5,
+                        ease: "power3.out",
+                    });
+                },
+                onLeaveBack: () => {
+                    gsap.to(paragraph, {
+                        opacity: 0,
+                        y: 50,
+                        duration: 1.5,
+                        ease: "power3.out",
+                    });
+                },
             });
         });
+    };
+
+    
+    // Initialize animations
+    animateParagraphs();
+
+    // Refresh ScrollTrigger after setup
+    ScrollTrigger.refresh();
+});
+
     </script>
-</body>
+  </body>
 </html>

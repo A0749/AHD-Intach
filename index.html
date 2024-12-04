@@ -18,7 +18,6 @@
 </head>
 <body>
   
-    <div class="all">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">
@@ -143,30 +142,7 @@
             </div>
         </div>
     
-    </div>
-   
-    <script>
-        document.querySelectorAll('.block').forEach(block => {
-            block.addEventListener('mouseenter', () => {
-                const video = block.querySelector('video');
-                if (video) {
-                    video.play();
-                }
-            });
-            block.addEventListener('mouseleave', () => {
-                const video = block.querySelector('video');
-                if (video) {
-                    video.pause();
-                }
-            });
-        });
-  
-            // Add 'active' class when the offcanvas menu opens
-            const offcanvasMenu = document.getElementById('offcanvasMenu');
-            document.addEventListener('DOMContentLoaded', () => {
-              offcanvasMenu.classList.add('active'); // Add or remove 'active' as needed
-            });
-          </script>
+
           <script src="https://kit.fontawesome.com/677b4ef31b.js" crossorigin="anonymous"></script>
           <script src="./src/js/bootstrap.min.js"></script>
           <script src="./src/js/gsap.min.js"></script>
