@@ -56,6 +56,7 @@ function applyAnimations() {
     animateElement(".right-gallery", { yValue: 30, opacity: 0, delay: 1.5 });
 
     animateElement(".listing-container", { yValue: 30, opacity: 0, delay: 1 });
+    animateElement(".bottom-nav", { yValue: 30, opacity: 0, delay: 1 });
     animateElement(".heritage-home", { yValue: 30, opacity: 0, delay: 1 });
 
 }
@@ -196,51 +197,117 @@ document.addEventListener("DOMContentLoaded", function () {
     ScrollTrigger.refresh();
 });
 
+
 document.addEventListener('DOMContentLoaded', () => {
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
-  
-    const cursorText = document.createElement('div');
-    cursorText.className = 'cursor-text';
-    cursor.appendChild(cursorText);
-  
-    document.addEventListener('mousemove', (e) => {
+  const cursor = document.createElement('div');
+  cursor.className = 'custom-cursor';
+  document.body.appendChild(cursor);
+
+  const cursorText = document.createElement('div');
+  cursorText.className = 'cursor-text';
+  cursor.appendChild(cursorText);
+
+  const cursorImage = document.createElement('img');
+  cursorImage.className = 'cursor-image';
+  cursor.appendChild(cursorImage);
+
+  // Default state of cursor (no text, no image)
+  cursorText.textContent = '';
+  cursorImage.src = '';
+
+  document.addEventListener('mousemove', (e) => {
       cursor.style.left = `${e.clientX}px`;
       cursor.style.top = `${e.clientY}px`;
-    });
-  
-    // Loop through elements with data-cursor attribute
-    document.querySelectorAll('[data-cursor]').forEach((el) => {
-      el.addEventListener('mouseenter', (e) => {
-        // Ensure that if the target or any ancestor has data-no-cursor, we don't show the text
-        if (!e.target.closest('[data-no-cursor]')) {
-          cursor.classList.add('hover');
-          cursorText.textContent = el.getAttribute('data-cursor');
-        }
-      });
-  
-      el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('hover');
-        cursorText.textContent = '';
-      });
-  
-      // Handle hovering over the child elements
-      el.querySelectorAll('[data-no-cursor]').forEach((child) => {
-        child.addEventListener('mouseenter', () => {
-          cursor.classList.remove('hover');
-          cursorText.textContent = ''; // Clear the text when hovering over elements with data-no-cursor
-        });
-      });
-  
-      el.querySelectorAll('[data-no-cursor]').forEach((child) => {
-        child.addEventListener('mouseleave', () => {
-          cursor.classList.add('hover');
-          cursorText.textContent = el.getAttribute('data-cursor'); // Restore the parent cursor text
-        });
-      });
-    });
   });
+
+  // Loop through all elements that may have custom cursor behavior
+  document.querySelectorAll('[data-text], [data-img], [data-bgcolor]').forEach((el) => {
+      el.addEventListener('mouseenter', (e) => {
+          // Get attributes for text, image, and background color
+          const dataText = el.getAttribute('data-text');
+          const dataImg = el.getAttribute('data-img');
+          const dataBgColor = el.getAttribute('data-bgcolor');
+          
+          // If background color is defined, change the cursor's background color
+          if (dataBgColor) {
+              cursor.style.backgroundColor = dataBgColor;
+              cursorText.textContent = '';  // No text when using background color
+              cursorImage.src = '';  // No image when using background color
+              cursorImage.style.display = 'none';  // Hide image
+          } else {
+              cursor.style.backgroundColor = '';  // Reset background color
+
+              // If image is set
+              if (dataImg) {
+                  cursorImage.src = dataImg;  // Set the cursor's image
+                  cursorImage.style.display = 'block';  // Show the image
+                  cursorText.textContent = '';  // Clear text when showing an image
+              } else {
+                  cursorImage.src = '';  // Clear image if no image is set
+                  cursorImage.style.display = 'none';  // Hide image
+              }
+
+              // If text is set
+              if (dataText) {
+                  cursorText.textContent = dataText;  // Set the cursor's text
+                  cursorImage.style.display = 'none';  // Hide image if text is shown
+              }
+          }
+
+          cursor.classList.add('hover');
+      });
+
+      el.addEventListener('mouseleave', () => {
+          cursor.classList.remove('hover');
+          cursorText.textContent = '';  // Clear text
+          cursorImage.src = '';  // Clear image
+          cursorImage.style.display = 'none';  // Hide image
+          cursor.style.backgroundColor = '';  // Reset background color
+      });
+
+      // Handle child elements with data-no-cursor (if any)
+      el.querySelectorAll('[data-no-cursor]').forEach((child) => {
+          child.addEventListener('mouseenter', () => {
+              cursor.classList.remove('hover');
+              cursorText.textContent = '';  // Clear text
+              cursorImage.src = '';  // Clear image
+              cursorImage.style.display = 'none';  // Hide image
+              cursor.style.backgroundColor = '';  // Reset background color
+          });
+      });
+
+      el.querySelectorAll('[data-no-cursor]').forEach((child) => {
+          child.addEventListener('mouseleave', () => {
+              cursor.classList.add('hover');
+              const dataText = el.getAttribute('data-text');
+              const dataImg = el.getAttribute('data-img');
+              const dataBgColor = el.getAttribute('data-bgcolor');
+
+              if (dataBgColor) {
+                  cursor.style.backgroundColor = dataBgColor;
+                  cursorText.textContent = '';  // No text when using background color
+                  cursorImage.src = '';  // No image when using background color
+              } else {
+                  cursor.style.backgroundColor = '';  // Reset background color
+                  if (dataImg) {
+                      cursorImage.src = dataImg;  // Set the cursor's image
+                      cursorImage.style.display = 'block';
+                      cursorText.textContent = '';  // No text with image
+                  } else {
+                      cursorImage.src = '';  // No image
+                      cursorImage.style.display = 'none';
+                  }
+
+                  if (dataText) {
+                      cursorText.textContent = dataText;  // Set the cursor's text
+                      cursorImage.style.display = 'none';  // Hide image if text is present
+                  }
+              }
+          });
+      });
+  });
+});
+
   
   document.addEventListener("DOMContentLoaded", () => {
     const scrollCircle = document.querySelector(".scroll-circle");
@@ -295,56 +362,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }, 500); // Timeout to detect scrolling stop
     });
-  });
-  
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const images = document.querySelectorAll('.expandable-image');
-    const modal = document.querySelector('.fullscreen-modal');
-    const fullscreenImage = document.querySelector('.fullscreen-image');
-    const prevButton = document.querySelector('.prev-button');
-    const nextButton = document.querySelector('.next-button');
-    const allImages = Array.from(images); // All images across the page
-    let currentIndex = 0;
-  
-    // Function to open the full-screen modal with the clicked image
-    const openModal = (index) => {
-      modal.style.display = 'flex';
-      fullscreenImage.src = allImages[index].src; // Set the clicked image to the modal
-      currentIndex = index;
-  
-      // Animate modal appearance
-      gsap.from(modal, { opacity: 0, duration: 0.5, ease: "power3.out" });
-      gsap.from(fullscreenImage, { scale: 0.8, duration: 0.5, ease: "power3.out" });
-    };
-  
-    // Close the modal when clicked outside the image
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        gsap.to(modal, { opacity: 0, duration: 0.3, ease: "power3.in" });
-        gsap.to(fullscreenImage, { scale: 0.8, duration: 0.3, ease: "power3.in", onComplete: () => modal.style.display = 'none' });
-      }
-    });
-  
-    // Add click event to images to open the modal
-    images.forEach((image, index) => {
-      image.addEventListener('click', () => openModal(index));
-    });
-  
-    // Navigation buttons for slider
-    const updateImage = (direction) => {
-      if (direction === 'prev') {
-        currentIndex = currentIndex === 0 ? allImages.length - 1 : currentIndex - 1;
-      } else if (direction === 'next') {
-        currentIndex = currentIndex === allImages.length - 1 ? 0 : currentIndex + 1;
-      }
-      fullscreenImage.src = allImages[currentIndex].src;
-  
-      // Animate image transition
-      gsap.from(fullscreenImage, { scale: 0.8, duration: 0.5, ease: "power3.out" });
-    };
-  
-    prevButton.addEventListener('click', () => updateImage('prev'));
-    nextButton.addEventListener('click', () => updateImage('next'));
   });
   
