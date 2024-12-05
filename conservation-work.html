@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/swup@latest/dist/swup.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./src/css/styles.css" />
+   
+
+    <title>Conservation Work - Architectural Heritage Division, INTACH</title>
+  </head>
+  <body id="conservation-work">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html" data-swup>
+          <img data-text="Intach.org" src="./src/img/logointach.png" alt="" />
+          <span class="brand-text" data-text="AHD Home">
+            <span class="brand-top">INTACH</span>
+            <!-- Top text -->
+            <span class="brand-bottom">
+              <span>A</span>
+              <span>R</span>
+              <span>C</span>
+              <span>H</span>
+              <span>I</span>
+              <span>T</span>
+              <span>E</span>
+              <span>C</span>
+              <span>T</span>
+              <span>U</span>
+              <span>R</span>
+              <span>A</span>
+              <span>L</span>
+
+              <span>&nbsp;</span>
+              <!-- For space -->
+              <span>H</span>
+              <span>E</span>
+              <span>R</span>
+              <span>I</span>
+              <span>T</span>
+              <span>A</span>
+              <span>G</span>
+              <span>E</span>
+            </span>
+            <!-- Bottom text -->
+          </span>
+        </a>
+        <button
+          data-text="Menu"
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasDarkNavbar"
+          aria-controls="offcanvasDarkNavbar"
+        >
+          <span id="page-name" class="page-name"></span>
+          <!-- Container for page name -->
+
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel"
+        >
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About AHD</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="gallery.html">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            <div class="offcanvas-footer">
+              <div class="bottom-content">
+                <div class="bottom-inside">
+                  <div class="left">
+                    <ul>
+                      <li>
+                        © Copyright 2024, all rights reserved with
+                        <a href="intach.org">INTACH</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="right">
+                    <ul>
+                      <li>
+                        <h2
+                          style="
+                            color: white;
+                            padding: 0;
+                            margin: 0;
+                            font-size: 1rem;
+                          "
+                        >
+                          Connect with us
+                        </h2>
+                      </li>
+                      <li>
+                        <a href="https://www.facebook.com/intach.heritage/"
+                          ><i class="fa-brands fa-facebook"></i
+                        ></a>
+                      </li>
+                      <li>
+                        <a href="https://www.instagram.com/intach_heritage/"
+                          ><i class="fa-brands fa-instagram"></i
+                        ></a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://www.youtube.com/@intachconservationinstitut2250"
+                          ><i class="fa-brands fa-youtube"></i
+                        ></a>
+                      </li>
+                      <li>
+                        <a href="https://x.com/INTACHIndia"
+                          ><i class="fa-brands fa-x-twitter"></i
+                        ></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="main container-fluid" data-text="Explore">
+      <div class="listing-container">
+        <section class="listings">
+          <div class="listings-header">
+            <div class="col">
+              <h1>Conservation Work</h1>
+            </div>
+            <div class="choice-nav">
+              <div class="index-container">
+                <!-- Trigger Button -->
+                <button
+                  data-text="Open"
+                  class="btn btn-secondary"
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#conservationProjectIndex"
+                  aria-controls="conservationProjectIndex"
+                >
+                  Project Index
+                </button>
+              </div>
+
+              <div class="choice-nav-container">
+                <div class="text-right ">
+                  <!-- Radio Buttons for project categories -->
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="projectCategory" id="ongoing-projects" value="ongoing" checked data-text="Select">
+                    <label class="form-check-label" for="ongoing-projects">Ongoing Projects</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="projectCategory" id="completed-projects" value="completed" data-text="Select">
+                    <label class="form-check-label" for="completed-projects">Completed Projects</label>
+                  </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <!-- Ongoing Projects -->
+            
+          <div class="listing" data-category="ongoing">
+            <div class="listing-info">
+              <h1>Restoration of Vadia Palace (Gujarat Forest Ranger’s College), Rajpipla, Gujarat              </h1>
+              <p>
+                Vadia Palace, also known as Indrajit- Padmini Mahal, was built in 1939, in the princely state of Rajpipla. It is currently used as the Gujarat Forest Ranger’s College. An MoU was signed between INTACH and GFRC in Sept 2019, for the restoration of this heritage building.
+              </p>
+              <p>The Detailed Project Report was submitted in January 2020. The project was divided into phases, of which Phase- I: Structural Restoration and Waterproofing was completed by Sept 2021.
+              </p>
+            
+            </div>
+            <div class="listing-img">
+              <div class="img">
+                <img src="./src/img/conservation/vadiaPalace.jpg" alt="Image 4" class="expandable-image" data-text="Expand" />
+              </div>
+            </div>
+          </div>
+  
+          <div class="listing" data-category="ongoing">
+            <div class="listing-info">
+              <h1>Delhi Police Museum              </h1>
+              <p>
+                INTACH has signed an MoU with the Delhi Police on 28th March 2022 to design and develop a museum dedicated to history, role, and challenges of Delhi Police in the heritage building within New PHQ (near Gurudwara Bangla Saheb).
+              </p>
+              <p>Delhi police has a long history of policing dating back to the first kotwal of Delhi in 1237 through an organized form of policing established by the British after the first war of Independence of 1857 to reorganizing of Delhi police in 1946 till today.              </p>
+              
+            </div>
+            <div class="listing-img">
+              <div class="img">
+                <img src="./src/img/conservation/DelhiPoliceMuseumProposedViews.jpg" alt="Image 1" class="expandable-image" data-text="Expand"/>
+              </div>
+            </div>
+          </div>
+          <div class="listing" data-category="ongoing">
+            <div class="listing-info">
+              <h1>Tipong Tourism Development Plan, Margherita, Assam              </h1>
+              <p>
+                Coal India has approached INTACH for the development of the Heritage Mining Tourism Development Plan for Upper Assam.
+              </p>
+             <p>For the same INTACH team visited Tipong, Margherita, Tinsukia, Ledo and Dibrugarh from 22nd March 2022 – 25th March 2022, for the preparation of Heritage Mining Tourism Destination Plan at Tipong, Assam and Upper Assam Tourism Circuit Development.
+            </p>
+            </div>
+            <div class="listing-img">
+              <div class="img">
+                <img src="./src/img/conservation/steam-engine-5july23-th1.jpg" alt="Image 1" class="expandable-image" data-text="Expand"/>
+              </div>
+            </div>
+          </div>
+  
+           <!-- Completed Projects -->
+          <div class="listing" data-category="completed">
+            <div class="listing-info">
+              <h1>Restoration of Balaji Ghat, Varanasi              </h1>
+              <p>Balaji Ghat palace- established by Balaji Peshwa of Pune in 1735 AD.</p>
+              <p>The palace and the temple is an outstanding example of Maratha architecture in Varanasi with elaborately carved wooden elements and space typology.              </p>
+            </div>
+            <div class="listing-img">
+              <div class="img">
+                <img src="./src/img/conservation/Balaji-Ghat-7jun24-th2.jpg" alt="Image 2" class="expandable-image" data-text="Expand"/>
+              </div>
+            </div>
+          </div>
+  
+          <div class="listing" data-category="completed">
+            <div class="listing-info">
+              <h1>
+                Restoration of Kaliadeh Palace (Surya Mandir), Ujjain
+              </h1>
+              <p>
+                Kaliadeh Palace, situated on an elevated plane by the bank of River Shipra, was built by the Sultan of Mandu in 1458 C.E.
+              </p>
+              
+              <p>
+                Persian inscriptions also record the visits of Mughal Emperors Akbar and Jahangir to the site.
+
+              </p>
+              
+            </div>
+            <div class="listing-img">
+              <div class="img">
+                <img src="./src/img/conservation/Kaliadeh-10jun2024-th2.jpg" alt="Image 3" class="expandable-image" data-text="Expand" />
+              </div>
+            </div>
+          </div>
+         
+ 
+        </section>
+      </div>
+    </div>
+
+    <!-- Offcanvas for Project Index -->
+    <div class="project-index-offcanvas">
+      <div
+    class="offcanvas offcanvas-start"
+    tabindex="-1"
+    id="conservationProjectIndex"
+    aria-labelledby="projectIndexLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="projectIndexLabel">
+        Project Index
+      </h5>
+      
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="#">Restoration of Vadia Palace</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#">Delhi Police Museum          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="">Restoration of Gol Dak Khana         </a>
+        </li>
+        <li class="list-group-item">
+          <a href="#">Tipong Tourism Development Plan</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#">Tripura Tribal Autonomous Museum</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#">Raja Shankar Shah Museum</a>
+        </li>
+
+        <!-- Add more projects as needed -->
+      </ul>
+    </div>
+  </div>
+    </div>
+
+    <script>
+          // Toggle listings based on selected category
+    document.querySelectorAll('input[name="projectCategory"]').forEach(radio => {
+      radio.addEventListener('change', function () {
+        const selectedCategory = this.value;
+
+        // Hide all listings
+        document.querySelectorAll('.listing').forEach(listing => {
+          listing.classList.remove('active');
+        });
+
+        // Show listings of the selected category
+        document.querySelectorAll(`.listing[data-category="${selectedCategory}"]`).forEach(listing => {
+          listing.classList.add('active');
+        });
+      });
+    });
+
+    // Trigger default selection on page load
+    document.getElementById("ongoing-projects").dispatchEvent(new Event("change"));
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/intersection-observer@0.12.2/intersection-observer.min.js"></script>
+
+    <script
+      src="https://kit.fontawesome.com/677b4ef31b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./src/js/bootstrap.min.js"></script>
+    <script src="./src/js/gsap.min.js"></script>
+    <script src="./src/js/ScrollTrigger.min.js"></script>
+    <script src="./src/js/script.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.1/dist/lenis.min.js"></script>
+  </body>
+</html>

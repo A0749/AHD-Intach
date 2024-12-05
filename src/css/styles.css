@@ -6,8 +6,8 @@ body {
 /* Custom Cursor */
 .custom-cursor {
   position: fixed;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border: 2px solid #fff;
   border-radius: 50%;
   pointer-events: none;
@@ -210,11 +210,18 @@ html.lenis body {
   margin: auto;
   padding: 2rem 0;
   position: absolute;
-  z-index: 1100;
+  z-index: 99;
 }
 
 .navbar .container-fluid {
   width: 95%;
+}
+#front-page .navbar-nav{
+  padding-top: 20vh;
+  align-items: flex-end;
+}
+#front-page .navbar{
+  z-index: 1110;
 }
 
 .navbar-brand {
@@ -327,7 +334,6 @@ html.lenis body {
 .navbar-toggler {
   visibility: visible !important;
   opacity: 1 !important; /* Make sure they are not faded */
-  z-index: 1051; /* Ensure they appear on top of offcanvas */
   cursor: none;
 }
 .navbar-toggler:focus,
@@ -338,27 +344,29 @@ html.lenis body {
   cursor: none;
 }
 
-.offcanvas {
-  background-color: #080303 !important;
+.navbar .offcanvas {
+  background-color: #000 !important;
 }
 /* Prevent body from scrolling when offcanvas is active */
-.offcanvas-active {
+.navbar .offcanvas-active {
   overflow: hidden;
 }
 
 /* Make sure the offcanvas covers the full screen */
-.offcanvas.offcanvas-end {
-  z-index: 1055; /* Higher than the navbar elements */
+.navbar .offcanvas.offcanvas-end {
+  z-index: 98; /* Higher than the navbar elements */
   width: 100vw !important; /* Full width of the viewport */
   height: 100vh; /* Full height of the viewport */
   background-color: var(--grey); /* Dark background to cover content */
   position: fixed;
 }
-
+.offcanvas-backdrop{
+  z-index: 95 !important;
+}
 /* Adjusting z-index to make sure navbar-brand and navbar-toggler are above offcanvas */
 .navbar-brand,
 .navbar-toggler {
-  z-index: 1060; /* Ensure they are above the offcanvas menu */
+  z-index: 99; /* Ensure they are above the offcanvas menu */
 }
 .navbar-toggler {
   border: none;
@@ -368,15 +376,15 @@ html.lenis body {
   background-image: none !important;
 }
 
-.offcanvas-header button {
+.navbar .offcanvas-header button {
   font-size: 1.5rem;
 }
 
-.offcanvas.offcanvas-end {
+.navbar .offcanvas.offcanvas-end {
   width: 100vw; /* Full width of the viewport */
 }
 
-.offcanvas-body {
+.navbar .offcanvas-body {
   display: flex;
   align-items: center; /* Vertically centers the content */
   justify-content: end;
@@ -397,9 +405,9 @@ html.lenis body {
   line-height: 1.2;
 }
 
-.offcanvas-body ul li a:active,
-.offcanvas-body ul li a:hover,
-.offcanvas-body ul li a:focus {
+.navbar .offcanvas-body ul li a:active,
+.navbar .offcanvas-body ul li a:hover,
+.navbar .offcanvas-body ul li a:focus {
   color: var(--yellow);
 }
 [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled){
@@ -421,14 +429,7 @@ html.lenis body {
   align-items: center;
   justify-content: flex-start;
 }
-.index-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  width: 60vw;
-  gap: 20px;
-}
+
 
 .box-container {
   display: flex;
@@ -732,7 +733,7 @@ html.lenis body {
   padding-right: 0 !important;
 }
 #gallery-page-body nav {
-  z-index: 100;
+  z-index: 99;
 }
 
 .gallery-main-content {
@@ -1148,19 +1149,20 @@ html.lenis body {
 }
 .listings-header {
   width: 100%;
-  display: flex;
+  display: block;
+  overflow: hidden; /* Prevents overflow */
+
 }
 .listings-header h1 {
-  padding: 2vh 3vw;
-  font-size: 14rem;
+  padding: 0 3vw;
   text-transform: uppercase;
   font-weight: 900;
+  font-size: 14rem; 
+  overflow: hidden; /* Prevents overflow */
+  padding-bottom: 2rem;
 }
 
-.listings-header .col:nth-child(2) {
-  flex: 4;
-  padding: 1em;
-}
+
 .listing {
   display: flex;
   gap: 1em;
@@ -1218,6 +1220,8 @@ html.lenis body {
   font-size: 0.9rem;
   letter-spacing: 1.1px;
   cursor: none;
+  transition: all 0.3s ease; /* Smooth transition effect */
+
 }
 .conservation-container .bottom-nav .nav-item:hover{
   background-color: rgba(0, 0, 0, 0.3);
@@ -1244,4 +1248,110 @@ html.lenis body {
 /* Remove the left border from the first item */
 .conservation-container .bottom-nav .nav-item:first-child {
   border-left: none;
+}
+
+/* Conservation Work */
+
+#conservation-work .listings-header h1{
+  font-size: 5rem;
+}
+#conservation-work .listing {
+  visibility: hidden;
+  position: absolute;
+  
+}
+#conservation-work .listing.active {
+  visibility: visible;
+  position: static;
+}
+
+/* Project Index */
+.index-container {
+  display: flex;
+  flex-direction: row;
+  width: 30vw;
+  height: 8vh;
+}
+.choice-nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0rem 1rem 3vw;
+  align-items: center;
+
+}
+
+.btn-secondary {
+  background-color: #15141490;  /* Dark gray background for primary button */
+  border-color: #10101083;
+  color:#a4a3a3;  /* White text for contrast */
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  padding: 0 1.2rem;
+}
+.btn-secondary:hover {
+  background-color: #111; /* Slightly lighter gray for hover */
+  border-color: #111;
+  color: #ffffff;  /* White text on hover */
+}
+.form-check-label{
+  color:#cdcaca;
+  padding-top: 0.5rem;
+}
+.form-check-input:checked{
+  background-color: var(--yellow);
+  border-color: var(--yellow);
+}
+.form-check-input{
+  height: 2em;
+  width: 2em;
+  background: none;
+  margin-right: 1rem;
+}
+
+.project-index-offcanvas .offcanvas {
+  z-index: 100;
+  background-color: #000;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 30vw;
+}
+.project-index-offcanvas .offcanvas-header{
+  background-color: #222;
+  padding: 0 ;
+}
+
+
+.project-index-offcanvas .offcanvas-body{
+  background-color: #000;
+}
+.project-index-offcanvas .offcanvas-body .list-group{
+}
+
+.project-index-offcanvas .offcanvas-body .list-group-item{
+  background-color: #000;
+  border: none;
+  border-bottom: 1px solid #6c6b6b;
+  transition: color 2s ease, all 0.9s ease; /* Smooth transition */
+  padding:1rem 0.5rem;
+
+
+  
+}
+.project-index-offcanvas h5{
+  color: #f0e7e7;
+  padding: 3vh 1vw 3vh 3vw;
+}
+.project-index-offcanvas .offcanvas-body ul li a {
+  font-size: 1rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  text-transform: capitalize;
+  padding:0.5rem;
+  letter-spacing: normal;
+  text-decoration: none;
+  width: 100%;
+}
+.project-index-offcanvas .offcanvas-body .list-group-item:hover{
+  background-color: #f5aa27;
+
 }

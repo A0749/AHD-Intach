@@ -1,353 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-      </style>
-    <title>Building Outline</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        font-family: "Noto Sans", sans-serif;
-      }
-      .container {
-        width: 100%;
-        height: 100%;
-      }
-      h1 {
-        color: #fff;
-        font-size: 36px;
-        font-weight: 400;
-      }
-      h3 {
-        color: #fff;
-        font-size: 28px;
-      }
-      p {
-        padding: 2rem 0;
-        color: #fff;
-        font-size: 15px;
-        font-weight: 400;
-        line-height: 150%;
-      }
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .hero {
-        width: 100vw;
-        height: 100vh;
-        background: url(./src/img/hr/3v.webp) no-repeat 50% 50%;
-        background-size: cover;
-        overflow: hidden;
-      }
-      .footer {
-        width: 100vw;
-        height: 100vh;
-        background: url(./src/img/hr/3v.webp) no-repeat 50% 50%;
-        background-size: cover;
-        overflow: hidden;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Font Size</title>
+  <style>
+    /* Styling for the container */
+    .dynamic-heading {
+      width: 500px; /* Fixed width */
+      height: 150px; /* Fixed height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 2px solid #000; /* Optional: for visual clarity */
+      margin: 50px auto; /* Center the container */
+      overflow: hidden;
+      background-color: #f4f4f4; /* Optional: to visualize space */
+    }
 
+    /* Styling for the heading */
+    #heading {
+      margin: 0;
+      line-height: 1.2; /* Maintain proportional line spacing */
+      white-space: nowrap; /* Prevent text wrapping */
+      text-align: center;
+      transition: font-size 0.3s ease; /* Smooth font-size transitions */
+    }
+  </style>
+</head>
+<body>
+  <div class="dynamic-heading">
+    <h1 id="heading">Dynamic Font Size Test</h1>
+  </div>
+
+  <script>
+    /**
+     * Dynamically adjusts the font size of the heading to fit within the container
+     */
+    function adjustFontSize() {
+      const heading = document.getElementById('heading');
+      const container = heading.parentElement;
+
+      const containerWidth = container.offsetWidth;
+      const containerHeight = container.offsetHeight;
+
+      let fontSize = 100; // Start with a large font size
+      heading.style.fontSize = `${fontSize}px`;
+
+      // Gradually decrease font size until the heading fits within the container
+      while (
+        heading.scrollWidth > containerWidth || 
+        heading.scrollHeight > containerHeight
+      ) {
+        fontSize -= 1; // Decrease font size step-by-step
+        heading.style.fontSize = `${fontSize}px`;
+
+        // Stop if font size becomes too small
+        if (fontSize <= 10) {
+          heading.style.fontSize = '10px'; // Set a minimum font size
+          break;
+        }
       }
-      .services {
-        background: #000;
-        padding: 8em 2em;
-        display: flex;
-        flex-direction: column;
+    }
+
+    // Adjust font size on page load and window resize
+    window.addEventListener('load', adjustFontSize);
+    window.addEventListener('resize', adjustFontSize);
+
+    // Optional: Allow user to change heading text for testing
+    document.addEventListener('click', () => {
+      const newText = prompt("Enter new heading text:");
+      if (newText) {
+        const heading = document.getElementById('heading');
+        heading.textContent = newText;
+        adjustFontSize(); // Recalculate font size for the new text
       }
-      .services-header {
-        width: 100%;
-        display: flex;
-        gap: 4em;
-      }
-      .services-header .col:nth-child(1) {
-        flex: 2;
-      }
-      .services-header .col:nth-child(2) {
-        flex: 4;
-        padding: 1em;
-      }
-      .service {
-        display: flex;
-        gap: 2em;
-        height: auto;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-      }
-
-      .service-info {
-        flex: 4;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 1em;
-      }
-      .service-img {
-        flex: 2;
-        width: 100%;
-        height: 100%;
-        padding: 1em;
-        position: sticky;
-        top: 50px; 
-
-
-      }
-      .img {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-     
-      }
-
-      html.lenis,
-      html.lenis body {
-        height: auto;
-      }
-
-      .lenis.lenis-smooth {
-        scroll-behavior: auto !important;
-      }
-
-      .lenis.lenis-smooth [data-lenis-prevent] {
-        overscroll-behavior: contain;
-      }
-
-      .lenis.lenis-stopped {
-        overflow: hidden;
-      }
-
-      .lenis.lenis-smooth iframe {
-        pointer-events: none;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <section class="hero"></section>
-      <section class="services">
-        <div class="services-header">
-          <div class="col"></div>
-          <div class="col">
-            <h1>All Services</h1>
-          </div>
-        </div>
-        <div class="service">
-          <div class="service-info">
-            <h1>Ongoing – Listing of Built Heritage, Diu</h1>
-            <p class="p1">
-              The Diu Island is marked by its massive Portuguese structures, its
-              beaches and its cluster of old residential colonies. The island
-              was first captured by many Hindu and Muslims dynasties till 1535
-              A.D and then was finally seized by the Portuguese in 1935 A.D: a
-              turning point in Diu Architecture. From a glance Diu would appear
-              as a landmark of dominating fortress and the catholic churches. To
-              witness the real Diu one has to meditate through the intertwining
-              lanes of the walled city. The residences of theses lanes speak
-              aloud of themselves, the finest carving, the modest facades with
-              mesmerizing interiors and the hung glass lamps portrays the aura
-              of the people residing here since hundreds of years. It’s the only
-              place where one could find the perfect amalgamation of Portuguese
-              architecture in pure Indigenous style.
-            </p>
-            <p class="p2">
-              The Diu administration and INTACH has taken initiative to list
-              these built heritage structures of Diu. A team of conservation
-              architects and architects visited the town twice and did a
-              comprehensive on-field survey to discover, geo-locate and document
-              the structures. The listing is under finalization stage and will
-              be submitted to the Diu Administration in near future.
-            </p>
-          </div>
-          <div class="service-img">
-            <div class="img">
-              <img src="./src/img/Diu_Listing-1013x1024.jpg" alt="" />
-            </div>
-          </div>
-        </div>
-
-        <div class="service">
-          <div class="service-info">
-            <h1>
-              Identification, Listing And Documentation Of Heritage Sites
-              Associated With Swami Vivekananda
-            </h1>
-            <p class="p3">
-              INTACH has been approached by the Ministry of Culture, Govt. of
-              India to list and document the buildings/sites associated with
-              Swami Vivekananda, especially the buildings which are not under
-              the ownership or care of the Ramakrishna Mission. A list of
-              buildings has been prepared across 31 towns including Delhi,
-              Alwar, Ajmer, Mount Abu, Hrishikesh, Nainital, Srinagar
-              (Uttarakhand), Varanasi, Ayodhya, Bhuj, Girnar, Palitana, Dwarka,
-              Mahabaleshwar, Panaji, Rameswaram, Pondicherry and others. A team
-              of architects from the AH division with support of INTACH chapters
-              and local resource persons have been engaged in the survey work. A
-              detailed inventory format has been prepared for site survey.
-              Assistance from the RK mission centers has also been sought for
-              identification and access to the buildings. While most of the
-              buildings are found to have been altered, some very significant
-              buildings have been demolished in the last decade, such as the
-              Seth Shyamaldas Haveli in Roshanara Garden, Delhi.
-            </p>
-          </div>
-          <div class="service-img">
-            <div class="img">
-              <img src="./src/img/Diu_Listing-1013x1024.jpg" alt="" />
-            </div>
-          </div>
-        </div>
-
-        <div class="service">
-          <div class="service-info">
-            <h1>Cultural Resource Mapping In North And South Sikkim</h1>
-            <p class="p4">
-              A MoU has been signed between the Govt. of Sikkim (Cultural
-              Affairs & Heritage Development) and INTACH to survey and update
-              the old listing in North and South Sikkim. Architectural Heritage
-              Division has surveyed about 160 heritage sites including built
-              heritage, natural landscapes, settlements, villages etc spanning
-              from a height of 600 feet to 18000 feet. The survey included study
-              and documentation of settlement patterns and houses of all three
-              predominant communities: Lepcha, Bhutia and Nepalese. The Bhutia
-              heartland in the north Sikkim (Chungthang, Lachen, Lachung,
-              Yumthang and Thanggu) being the main epicenter of 2011 of
-              earthquake, suffered the maximum damage. While many mani Lakhangs,
-              Gompas and houses in this area featured in the old list were
-              damaged, some of them have been rebuilt and the others are in the
-              process of rebuilding. One of the most significant monasteries
-              Thanggu at 14000 feet above sea was destroyed in the earthquake
-              and has been rebuilt. The survey data is presently being compiled
-              in form a listing document.
-            </p>
-          </div>
-          <div class="service-img">
-            <div class="img">
-              <img src="./src/img/Diu_Listing-1013x1024.jpg" alt="" />
-            </div>
-          </div>
-        </div>
-
-        <div class="service">
-          <div class="service-info">
-            <h1>
-              Cultural Heritage Mapping In Braj Corridor And Buddhist Circuit
-            </h1>
-            <p class="p5">
-              Architectural Heritage Division of INTACH has been entrusted by
-              the world bank to undertake cultural resources mapping in the Braj
-              corridor comprising 9 towns (Agra, Mathura, Vrindavan, Nandgaon,
-              Barsana, Govardhan, Gokul, Mahavan and Baldeo) and the Buddhist
-              circuit covering 3 towns (Sarnath, Kushinagar and Shravasti). The
-              mapping involved identification, comprehensive listing, and
-              mapping of the heritage assets both tangible and intangible using
-              Geographical Information System (GIS).
-            </p>
-            <h3>Buddhist Circuit</h3>
-            <p class="p6">
-              Known as the ‘Cradle of Buddhism’, the Buddhist Circuit is dotted
-              with monuments, relics, and Jataka tales and so has been a major
-              centre for rich architectural and cultural heritage for centuries.
-              The survey was undertaken in Sarnath – where Buddha delivered his
-              first sermon, Sravasti – where he retreated every monsoon for more
-              than 25 years and Kushinagar – where Buddha attained
-              Mahaparinirvana covering 40 sites in Sarnath, 39 sites in
-              Kushinagar and 59 sites in Sravasti comprising temples,
-              monasteries, Stupas, Viharas, meditation centres, archaeological
-              ruins and open spaces of immense historic significance.
-            </p>
-            <h3>Agra – Braj Corridor</h3>
-            <p class="p7">
-              The towns identified for survey in the Braj Corridor are highly
-              significant and due to their association with the legends of Lord
-              Krishna and his life. Braj has been the subject of poetry and
-              paintings in medieval and late medieval India. The living
-              traditions of Braj are encompassed in its unique dialect, folk
-              dances and songs, and folk arts and crafts. The survey covered 56
-              sites in Mathura, 61 sites in Vrindavan, 34 sites in Gokul, 24
-              sites in Mahavan, 11 sites in Baldeo, 37 sites in Barsana, 38
-              sites in Nandgaon and 42 sites in Govardhan of immense historic
-              significance and are located along various parikrama routes and
-              include architectural, natural and intangible heritage of various
-              typologies.
-            </p>
-          </div>
-          <div class="service-img">
-            <div class="img">
-              <img src="./src/img/Diu_Listing-1013x1024.jpg" alt="" />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="footer"></section>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/intersection-observer@0.12.2/intersection-observer.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lenis@1.1.1/dist/lenis.min.js"></script>
-
-    <script>
- document.addEventListener("DOMContentLoaded", function () {
-    const lenis = new Lenis();
-
-    lenis.on("scroll", ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
     });
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.ticker.lagSmoothing(0);
-
-    // Independent paragraph animations
-    const animateParagraphs = () => {
-        const paragraphs = gsap.utils.toArray("p, h1, h3, img");
-        paragraphs.forEach((paragraph) => {
-            gsap.set(paragraph, { opacity: 0, y: 50 }); // Initially hide paragraphs
-
-            ScrollTrigger.create({
-                trigger: paragraph,
-                start: "top 80%", // Adjust trigger position based on viewport
-                end: "top 60%",
-                toggleActions: "play none none reverse",
-                onEnter: () => {
-                    gsap.to(paragraph, {
-                        opacity: 1,
-                        y: 0,
-                        duration: 1.5,
-                        ease: "power3.out",
-                    });
-                },
-                onLeaveBack: () => {
-                    gsap.to(paragraph, {
-                        opacity: 0,
-                        y: 50,
-                        duration: 1.5,
-                        ease: "power3.out",
-                    });
-                },
-            });
-        });
-    };
-
-    
-    // Initialize animations
-    animateParagraphs();
-
-    // Refresh ScrollTrigger after setup
-    ScrollTrigger.refresh();
-});
-
-    </script>
-  </body>
+  </script>
+</body>
 </html>
